@@ -32,5 +32,17 @@ function add_concat(terms) {
 </script>
 
 <script type="text/js" id="ex-js-map">
+// Given a list of string terms, find the one that occurs most often
+function most_common_term(terms) {
+    var term_map = {}, max = 0, result;
+    terms.forEach(function(term) {
+        if (term_map[term]) {
+            term_map[term]++;
+        } else {
+            term_map[term] = 1;
+        }
+    });
 
+    return result;
+}
 </script>

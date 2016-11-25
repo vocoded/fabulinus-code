@@ -1,23 +1,49 @@
-  <script type="text/php" id="ex-php-structure">
+<script type="text/php" id="ex-php-structure">
 <?php
 // No default program structure, execution begins immediately
 
 echo 'Hello world\n'
 
-  </script>
+</script>
   
-  <script type="text/php" id="ex-php-control">
+<script type="text/php" id="ex-php-control">
 $null_var = null
 $true_var = true
 $false_var = false
 
 if (condition) {
-  print "Condition set\n"
+    print "Condition set\n"
 } else if (other_condition && another_condition) {
-  print "Other conditions set"
+    print "Other conditions set"
 } else {
-  print "Fell through"
+    print "Fell through"
 }
   
 $value = condition ? "Condition is truthy!" : "Condition is falsy!"
-  </script>
+</script>
+
+<script type="text/php" id="ex-php-map">
+// Given a list of string terms, find the one that occurs most often
+function most_common_term($terms) {
+    $term_map = [];
+    foreach ($terms as $term) {
+        if (isset($term_map[$term])) {
+            $term_map[$term] += 1;
+        } else {
+            $term_map[$term] = 1;
+        }
+    }
+
+    $max = 0;
+    $result = null;
+
+    foreach ($term_map as $term => $count) {
+        if ($count > $max) {
+            $result = $term;
+            $max = $count;
+        }
+    }
+
+    return $result;
+}
+</script>

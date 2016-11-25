@@ -143,7 +143,7 @@
 		return "TBD";
 	}
 	
-	var setBlocks = function(lang) {
+	var setCodeBlocks = function(lang) {
         blocks.forEach(function(block) {
             var code = getCodeBlock(lang, block);
             $('#ex-' + block).html("<pre>" + code + "</pre>");
@@ -161,10 +161,10 @@
         if (!loaded[lang] && !loading) {
             loading = true;
             fetchCodeBlocks(lang, function () {
-                setBlocks(lang);
+                setCodeBlocks(lang);
             });
         } else if (loaded[lang]) {
-            setBlocks(lang);
+            setCodeBlocks(lang);
         }
 	});
   });
