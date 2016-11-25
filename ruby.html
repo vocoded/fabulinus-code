@@ -1,0 +1,60 @@
+  <script type="text/ruby" id="ex-ruby-structure">
+# No default program structure, execution begins immediately
+
+puts 'Hello world'
+  </script>
+      
+  <script type="text/ruby" id="ex-ruby-control">
+null_var = nil
+true_var = true
+false_var = false
+
+if condition
+  puts "Condition set"
+elsif other_condition
+  puts "Other condition set"
+else
+  puts "Fell through"
+end
+  
+value = condition ? "Condition is truthy!" : "Condition is falsy!"
+  </script>
+
+  <script type="text/ruby" id="ex-ruby-function">
+# Ruby does not support overloading and if parameters are declared, they must be passed
+# Ruby is pass by value, though when the value refers to an object, the object may be modified
+
+# Increments the given integer local to the function
+def increment(x)
+  x += 1
+end
+
+def add_concat(terms)
+  add_concat.push(terms.join(""))
+end
+
+# This would be a runtime error: add_concat()
+  </script>
+
+  <script type="text/ruby" id="ex-ruby-map">
+# Given a list of string terms, find the one that occurs most often
+def most_common_term(terms)
+  term_map = {}
+  terms.each do |term|
+    # Alternatively, you can simply test term_map[term]
+    if term_map.key?(term)
+      term_map[term] += 1
+    else
+      term_map[term] = 1
+    end
+  end
+
+  max = 0
+  result = nil
+  term_map.each do |term, count|
+    result, max = [term, count] if count > max
+  end
+
+  result
+end
+  </script>

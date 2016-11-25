@@ -1,0 +1,66 @@
+  <script type="text/python" id="ex-python-control">
+null_var = None
+true_var = True
+false_var = False
+
+if condition:
+    print "Condition set"
+# Boolean operators "and", "or", "not"
+elif other_condition and another_condition:
+    print "Other conditions set"
+else:
+    print "Fell through"
+
+# Equivalent of ternary	
+value = "Condition is truthy!" if condition else "Condition is falsy!"
+  </script>
+
+  <script type="text/python" id="ex-python-function">
+def eat_bananas(how_many):
+    print "I'm going to eat %d bananas" % how_many
+
+# Function overloading not allowed, this would overwrite the definition:
+# def eat_bananas():
+
+eat_bananas(10)
+  </script>
+
+  <script type="text/python" id="ex-python-structure">
+import string
+# No default program structure, execution begins immediately
+
+print 'Hello world'
+  </script>
+
+  <script type="text/python" id="ex-python-map">
+# Given a list of string terms, find the one that occurs most often
+def most_common_term(terms):
+    term_map = {}
+    for term in terms:
+        # Negative form is "term not in term_map"
+        if term in term_map:
+            term_map[term] += 1
+        else
+            term_map[term] = 1
+
+    max = 0
+    result = None
+    for term, count in term_map.iteritems():
+      if count > max:
+          (result, max) = (term, count) 
+
+    # Demonstrate element removal
+    del term_map[result]
+
+    return result
+  </script>
+  
+  <script type="text/python" id="ex-python-io2">
+for line in open('strings.txt'):
+    print line
+
+# Manually grab content of file
+f = open('strings.txt')
+lines = f.readlines()
+f.close()
+  </script>

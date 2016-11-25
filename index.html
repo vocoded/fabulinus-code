@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Fabulinus - The Practical Language Reference</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Bootstrap CSS, theme, JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- MarkdownJS -->
+  <script src="marked.js"></script>
+
+  <!-- HighlightJS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>  
+  
+  <style>
+  body { margin-left: 10px; margin-right: 10px }
+  </style>
+</head>
+<body>
+
+  <div id="content"></div>
+  
+  <script type="text/markdown" id="md">
+# Fabulinus - The Practical Language Reference
+
+<select name="language" id="language-select" class="form-control">
+  <option value="none">Select...
+  <option value="ruby">Ruby
+  <option value="python">Python
+  <option value="php">PHP
+  <!--
+  <option value="js">Javascript ES5
+  <option value="es6">Javascript ES6
+  <option value="java">Java
+  <option value="cpp">C++
+  <option value="objc">Objective-C
+  -->
+</select>
+
+## Program Structure
+
+<div id="ex-structure">
+</div>
+
+## Control Flow
+
+<div id="ex-control">
+</div>
+
+## Function Declaration and Usage
+
+<div id="ex-function">
+</div>
+
+## Variable Declarations and Scope
+
+<div id="ex-var">
+</div>
+
+## Strings
+
+<div id="ex-string">
+</div>
+
+## Arrays and Maps
+
+<div id="ex-map">
+</div>
+
+## Basic I/O
+
+<div id="ex-io">
+</div>
+
+## Intermediate I/O
+
+<div id="ex-io2">
+</div>
+
+## Classes
+
+<div id="ex-class">
+</div>
+
+## Date and Time
+
+<div id="ex-datetime">
+</div>
+
+## Regular Expressions
+
+<div id="ex-regex">
+</div>
+
+## Namespacing/Packaging
+
+<div id="ex-namespace">
+</div>
+
+  </script>
+  
+  <script>
+  
+  $(function() {
+	var blocks = [
+		'structure', 'control', 'function', 'var', 'string', 'map',
+		'io', 'io2', 'class', 'datetime', 'regex', 'namespace'
+	];
+
+	var loaded = {};
+	
+	var fetchCodeBlocks = function(lang, onSuccess) {
+		loaded[lang] = true;
+		$.get({
+			url: lang + '.html',
+			success: function(data) {
+				$(body).append(data);
+				onSuccess();
+			},
+			error: function() {
+				console.log("Unable to fetch language file");
+			}
+		});
+	};
+
+	var formatCode = function(lang, block) {
+		var $block = $("#ex-" + lang + "-" + block);
+		if ($block.length) {
+			return hljs.highlight(lang, $.trim($block.html())).value;
+		}
+		
+		return "TBD";
+	}
+	
+	var getCodeBlock = function(lang, block) {
+		if (!loaded[lang]) {
+			fetchCodeBlocks(lang, function() {
+				formatCode(lang, block);
+			});
+		} else {
+			return formatCode(lang, block);
+		}
+	};
+	
+	$('#content').html(marked($('#md').html()));
+	$('#language-select').on('change', function (e) {
+		blocks.forEach(function(block) {
+			var lang = $('#language-select').val();
+			var code = getCodeBlock(lang, block);
+			$('#ex-' + block).html("<pre>" + code + "</pre>");
+		});
+	});
+  });
+  </script>
+</body>
+</html>
