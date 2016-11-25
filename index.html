@@ -118,22 +118,23 @@
 	var loaded = {};
 	
 	var fetchCodeBlocks = function(lang, onSuccess) {
-		loaded[lang] = true;
 		$.get({
 			url: lang + '.html',
 			success: function(data) {
-			    loading = false;
+                loaded[lang] = true;
 				$('body').append(data);
 				onSuccess();
 			},
 			error: function() {
-			    loading = false;
 				console.log("Unable to fetch language file");
-			}
+			},
+            complete: function() {
+                loading = false;
+            }
 		});
 	};
 
-	var formatCode = function(lang, block) {
+	var getCodeBlock = function(lang, block) {
 		var $block = $("#ex-" + lang + "-" + block);
 		if ($block.length) {
 			return hljs.highlight(lang, $.trim($block.html())).value;
@@ -142,27 +143,29 @@
 		return "TBD";
 	}
 	
-	var getCodeBlock = function(lang, block) {
-		if (!loaded[lang] && !loading) {
-		    loading = true;
-			fetchCodeBlocks(lang, function() {
-				formatCode(lang, block);
-			});
-		} else {
-			return formatCode(lang, block);
-		}
-	};
-	
-	$('#content').html(marked($('#md').html()));
-	$('#language-select').on('change', function (e) {
-		blocks.forEach(function(block) {
-			var lang = $('#language-select').val();
+	var setBlocks = function(lang) {
+        blocks.forEach(function(block) {
+            var code = getCodeBlock(lang, block);
+            $('#ex-' + block).html("<pre>" + code + "</pre>");
+        });
+    }
 
-			if (lang !== 'none') {
-                var code = getCodeBlock(lang, block);
-                $('#ex-' + block).html("<pre>" + code + "</pre>");
-            }
-		});
+    $('#content').html(marked($('#md').html()));
+
+    $('#language-select').on('change', function (e) {
+        var lang = $('#language-select').val();
+        if (lang === 'none') {
+            return;
+        }
+
+        if (!loaded[lang] && !loading) {
+            loading = true;
+            fetchCodeBlocks(lang, function () {
+                setBlocks(lang);
+            });
+        } else if (loaded[lang]) {
+            setBlocks(lang);
+        }
 	});
   });
   </script>
