@@ -114,6 +114,7 @@
 		'io', 'io2', 'class', 'datetime', 'regex', 'namespace'
 	];
 
+	var loading = false;
 	var loaded = {};
 	
 	var fetchCodeBlocks = function(lang, onSuccess) {
@@ -121,10 +122,12 @@
 		$.get({
 			url: lang + '.html',
 			success: function(data) {
-				$(body).append(data);
+			    loading = false;
+				$('body').append(data);
 				onSuccess();
 			},
 			error: function() {
+			    loading = false;
 				console.log("Unable to fetch language file");
 			}
 		});
@@ -140,7 +143,8 @@
 	}
 	
 	var getCodeBlock = function(lang, block) {
-		if (!loaded[lang]) {
+		if (!loaded[lang] && !loading) {
+		    loading = true;
 			fetchCodeBlocks(lang, function() {
 				formatCode(lang, block);
 			});
@@ -153,8 +157,11 @@
 	$('#language-select').on('change', function (e) {
 		blocks.forEach(function(block) {
 			var lang = $('#language-select').val();
-			var code = getCodeBlock(lang, block);
-			$('#ex-' + block).html("<pre>" + code + "</pre>");
+
+			if (lang !== 'none') {
+                var code = getCodeBlock(lang, block);
+                $('#ex-' + block).html("<pre>" + code + "</pre>");
+            }
 		});
 	});
   });

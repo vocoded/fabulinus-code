@@ -40,14 +40,14 @@ def most_common_term(terms):
         # Negative form is "term not in term_map"
         if term in term_map:
             term_map[term] += 1
-        else
+        else:
             term_map[term] = 1
 
     max = 0
     result = None
     for term, count in term_map.iteritems():
-      if count > max:
-          (result, max) = (term, count) 
+        if count > max:
+            (result, max) = (term, count)
 
     # Demonstrate element removal
     del term_map[result]
