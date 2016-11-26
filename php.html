@@ -22,6 +22,50 @@ if (condition) {
 $value = condition ? "Condition is truthy!" : "Condition is falsy!"
 </script>
 
+<script type="text/php" id="ex-php-function">
+// Increments the given integer local to the function
+function increment($x) {
+    $x += 1;
+}
+
+// Increments the given integer globally
+function increment(&$x) {
+    $x += 1;
+}
+
+function addConcat($terms) {
+    $terms[] = join("", $terms);
+}
+</script>
+
+<script type="text/php" id="ex-php-var">
+# Literal syntax, compatible with PHP 5.4+
+$ary = ['hello', 'world'];
+$ary = array('hello', 'world');
+$ary = ['hello' => 'world'];
+</script>
+
+
+<script type="text/php" id="ex-php-string">
+// Strings are immutable and support basic interpolation
+$str = "bananas";
+$strstr = "let's go $str";
+$strcat = "hello " . "world";
+
+echo strlen($strstr);
+echo $strstr[0];
+echo strpos($strstr, 'ba');
+
+// Start index, length
+echo substr($strstr, 0, 3));
+
+$words = explode(" ", $strstr);
+// Also aliased as "join"
+echo implode(" ", $words);
+
+echo str_replace('ban', 'can', $strstr);
+</script>
+
 <script type="text/php" id="ex-php-map">
 // Given a list of string terms, find the one that occurs most often
 function most_common_term($terms) {

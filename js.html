@@ -79,7 +79,7 @@ console.log(i + ": " + j);
 <script type="text/js" id="ex-js-string">
 // Strings are immutable and do not support variable interpolation
 var str = "bananas";
-var strstr = "let's go" + str;
+var strstr = "let's go " + str;
 
 console.log(strstr.length);
 console.log(strstr.charAt(0));
@@ -89,6 +89,9 @@ console.log(strstr.indexOf('ba'));
 console.log(strstr.substr(0, 3));
 // Start index, end index exclusive
 console.log(strstr.substr(1, 3));
+
+var words = strstr.split(' ');
+console.log(['hello', 'world'].join(' '));
 
 console.log(strstr.replace('ban', 'can'));
 </script>
