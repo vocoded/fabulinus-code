@@ -5,6 +5,7 @@ console.log('Hello world');
 </script>
 
 <script type="text/js" id="ex-js-control">
+var undef_var;  // Initial value is undefined
 var null_var = null;
 var true_var = true;
 var false_var = false;
@@ -18,6 +19,16 @@ if (condition) {
 }
   
 var value = condition ? "Condition is truthy!" : "Condition is falsy!"
+
+for (var i = 0; i < 100; i++) {
+    break;
+}
+
+// Alternate form of for not usually useful as it requires safeguards
+for (var prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+    }
+}
 </script>
 
 <script type="text/js" id="ex-js-function">
@@ -35,6 +46,7 @@ function add_concat(terms) {
 // Given a list of string terms, find the one that occurs most often
 function most_common_term(terms) {
     var term_map = {}, max = 0, result;
+    // For maximum compatibility, use a library like underscorejs
     terms.forEach(function(term) {
         if (term_map[term]) {
             term_map[term]++;
@@ -43,6 +55,40 @@ function most_common_term(terms) {
         }
     });
 
+    delete term_map[result];
+
     return result;
 }
+
+console.log(most_common_term(['hello', 'world', 'hello']));
+</script>
+
+<script type="text/js" id="ex-js-var">
+// Variables exist at function scope, not block scope
+for (var i = 1; i <= 100; i++) {
+    if (i % 3 == 0) {
+        var j = 'First Fizz';
+        break;
+    }
+}
+
+// Previous variables continues to exist
+console.log(i + ": " + j);
+</script>
+
+<script type="text/js" id="ex-js-string">
+// Strings are immutable and do not support variable interpolation
+var str = "bananas";
+var strstr = "let's go" + str;
+
+console.log(strstr.length);
+console.log(strstr.charAt(0));
+console.log(strstr.indexOf('ba'));
+
+// Start index, length
+console.log(strstr.substr(0, 3));
+// Start index, end index exclusive
+console.log(strstr.substr(1, 3));
+
+console.log(strstr.replace('ban', 'can'));
 </script>
