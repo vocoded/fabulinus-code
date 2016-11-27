@@ -107,66 +107,66 @@
   </script>
   
   <script>
-  
+
   $(function() {
-    var blocks = [
-		'structure', 'control', 'function', 'var', 'string', 'map',
-		'io', 'io2', 'class', 'datetime', 'regex', 'namespace'
-	];
+      var blocks = [
+          'structure', 'control', 'function', 'var', 'string', 'map',
+          'io', 'io2', 'class', 'datetime', 'regex', 'namespace'
+      ];
 
-	var loading = false;
-	var loaded = {};
+      var loading = false;
+      var loaded = {};
+
+      var fetchCodeBlocks = function(lang, onSuccess) {
+          $.get({
+              url: lang + '.html',
+              success: function(data) {
+                  loaded[lang] = true;
+                  $('body').append(data);
+                  onSuccess();
+              },
+              error: function() {
+                  console.log("Unable to fetch language file");
+              },
+              complete: function() {
+                  loading = false;
+              }
+          });
+      };
+
+      var getCodeBlock = function(lang, block) {
+          var $block = $("#ex-" + lang + "-" + block);
+          if ($block.length) {
+              return hljs.highlight(lang, $.trim($block.html())).value;
+          }
+
+          return "TBD";
+      };
 	
-	var fetchCodeBlocks = function(lang, onSuccess) {
-		$.get({
-			url: lang + '.html',
-			success: function(data) {
-                loaded[lang] = true;
-				$('body').append(data);
-				onSuccess();
-			},
-			error: function() {
-				console.log("Unable to fetch language file");
-			},
-            complete: function() {
-                loading = false;
-            }
-		});
-	};
+	  var setCodeBlocks = function(lang) {
+          blocks.forEach(function(block) {
+              var code = getCodeBlock(lang, block);
+              $('#ex-' + block).html("<pre>" + code + "</pre>");
+          });
+      };
 
-	var getCodeBlock = function(lang, block) {
-		var $block = $("#ex-" + lang + "-" + block);
-		if ($block.length) {
-			return hljs.highlight(lang, $.trim($block.html())).value;
-		}
-		
-		return "TBD";
-	}
-	
-	var setCodeBlocks = function(lang) {
-        blocks.forEach(function(block) {
-            var code = getCodeBlock(lang, block);
-            $('#ex-' + block).html("<pre>" + code + "</pre>");
-        });
-    }
+      $('#content').html(marked($('#md').html()));
 
-    $('#content').html(marked($('#md').html()));
+      $('#language-select').on('change', function (e) {
+          var lang = $('#language-select').val();
+          if (lang === 'none') {
+              return;
+          }
 
-    $('#language-select').on('change', function (e) {
-        var lang = $('#language-select').val();
-        if (lang === 'none') {
-            return;
-        }
-
-        if (!loaded[lang] && !loading) {
-            loading = true;
-            fetchCodeBlocks(lang, function () {
-                setCodeBlocks(lang);
-            });
-        } else if (loaded[lang]) {
-            setCodeBlocks(lang);
-        }
-	});
+          if (!loaded[lang] && !loading) {
+              loading = true;
+              fetchCodeBlocks(lang, function () {
+                  setCodeBlocks(lang);
+              });
+          } else if (loaded[lang]) {
+              setCodeBlocks(lang);
+          }
+	  });
   });
   </script>
 </body>
