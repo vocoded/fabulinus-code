@@ -108,3 +108,23 @@ function most_common_term($terms) {
     return $result;
 }
 </script>
+
+<script type="text/php" id="ex-php-class">
+class MyClass {
+    const MAX_COUNT = 100;
+    private $count;
+    private static $id = "MyClass";
+
+    public function __construct($count) {
+        $this->count = $count;
+    }
+
+    public static function getId() {
+        return self::$id;
+    }
+}
+
+$instance = new MyClass(10);
+$name = MyClass::getId();
+$count = MyClass::MAX_COUNT;
+</script>
