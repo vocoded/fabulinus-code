@@ -36,6 +36,30 @@ end
 # This would be a runtime error: add_concat()
   </script>
 
+<script type="text/ruby" id="ex-ruby-string">
+# Strings are mutable
+str = "bananas"
+# They support basic variable interpolation
+strstr = "let's go #{str}"
+# Concatenation via + operator
+strcat = "hello " + "world"
+
+# Also works as strstr.size
+puts strstr.length
+# Subscripting to get specific character in Ruby 1.9+, earlier versions need .chr
+puts strstr[0]
+# IndexOf; returns nil if not found
+puts strstr.index('ba')
+
+# Start index, length; also works as strstr[0, 3]
+puts strstr.slice(0, 3)
+
+words = strstr.split(' ')
+puts words.join(' ')
+
+puts strstr.gsub('ban', 'can')
+</script>
+
   <script type="text/ruby" id="ex-ruby-map">
 # Given a list of string terms, find the one that occurs most often
 def most_common_term(terms)
