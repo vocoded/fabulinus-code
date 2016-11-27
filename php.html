@@ -33,8 +33,19 @@ function increment(&$x) {
     $x += 1;
 }
 
+// Modifies an array local to the function
 function addConcat($terms) {
     $terms[] = join("", $terms);
+}
+
+// Modifies an array globally using reference
+function addConcat(&$terms) {
+    $terms[] = join("", $terms);
+}
+
+// Argument defaults
+function add($x, $addend = 1) {
+    return $x + $addend;
 }
 </script>
 
@@ -47,13 +58,19 @@ $ary = ['hello' => 'world'];
 
 
 <script type="text/php" id="ex-php-string">
-// Strings are immutable and support basic interpolation
+// Strings are immutable and declared implicitly
 $str = "bananas";
+// They support basic variable interpolation
 $strstr = "let's go $str";
+// Except when defined with single quotes
+$strlit = 'let\'s go $str';
+// Concatenation via . operator
 $strcat = "hello " . "world";
 
 echo strlen($strstr);
+// Subscripting to get specific character
 echo $strstr[0];
+// IndexOf; returns false if not found
 echo strpos($strstr, 'ba');
 
 // Start index, length
