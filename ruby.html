@@ -55,6 +55,8 @@ def most_common_term(terms)
     result, max = [term, count] if count > max
   end
 
+  term_map.delete(result);
+
   result
 end
   </script>

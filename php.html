@@ -7,19 +7,27 @@ echo 'Hello world\n'
 </script>
   
 <script type="text/php" id="ex-php-control">
-$null_var = null
-$true_var = true
-$false_var = false
+$null_var = null;
+$true_var = true;
+$false_var = false;
 
 if (condition) {
-    print "Condition set\n"
+    print "Condition set\n";
 } else if (other_condition && another_condition) {
-    print "Other conditions set"
+    print "Other conditions set";
 } else {
-    print "Fell through"
+    print "Fell through";
 }
   
-$value = condition ? "Condition is truthy!" : "Condition is falsy!"
+$value = condition ? "Condition is truthy!" : "Condition is falsy!";
+
+for ($i = 0; $i < 100; $i++) {
+    break;
+}
+
+foreach ([1, 2, 3] as $val) {
+    echo $val;
+}
 </script>
 
 <script type="text/php" id="ex-php-function">
@@ -104,6 +112,8 @@ function most_common_term($terms) {
             $max = $count;
         }
     }
+
+    unset($term_map[$result]);
 
     return $result;
 }
