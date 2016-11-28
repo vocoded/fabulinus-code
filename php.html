@@ -55,6 +55,14 @@ function addConcat(&$terms) {
 function add($x, $addend = 1) {
     return $x + $addend;
 }
+
+add(5);
+
+// Runtime error:
+// add();
+
+// Works, ignoring the additional parameter:
+add(1, 2, 3);
 </script>
 
 <script type="text/php" id="ex-php-var">
