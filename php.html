@@ -148,5 +148,16 @@ $count = MyClass::MAX_COUNT;
 </script>
 
 <script type="text/php" id="ex-php-datetime">
+// Set timezone globally
+date_default_timezone_set('UTC');
+
 $secondsSinceEpoch = time();
+
+// Returns the current date as a string of form yyyy-mm-dd
+$dateString = date('Y-m-d');
+// Returns an associative array with keys like 'seconds', 'minutes', 'hours', 'mday', 'mon', 'year', etc
+$dateArray = getdate();
+
+// Creates a unix timestamp for the given parameters
+$time = mktime($hour, $minute, $second, $month, $day, $year);
 </script>
