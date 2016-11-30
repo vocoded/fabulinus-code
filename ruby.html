@@ -36,6 +36,14 @@ end
 # This would be a runtime error: add_concat()
   </script>
 
+<script type="text/ruby" id="ex-ruby-var">
+# Variables have block scope
+def say_hello
+  str = "hello"
+  puts str
+end
+</script>
+
 <script type="text/ruby" id="ex-ruby-string">
 # Strings are mutable
 str = "bananas"
