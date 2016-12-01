@@ -40,6 +40,13 @@ print 'Hello world'
  strcat = "hello " + "world"
 
  print re.sub(r"ban", "can", strstr)
+</script>
+
+  <script type="text/python" id="ex-python-regex">
+ import re
+
+ html = "<s\npan>\n\n</span>"
+ print re.sub(r"<([^>]+)\n", "\\1", html)
   </script>
 
   <script type="text/python" id="ex-python-map">
