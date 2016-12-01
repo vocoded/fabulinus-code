@@ -32,6 +32,16 @@ import string
 print 'Hello world'
   </script>
 
+  <script type="text/python" id="ex-python-string">
+ import re
+
+ str = "bananas"
+ strstr = "let's go %s" % str
+ strcat = "hello " + "world"
+
+ print re.sub(r"ban", "can", strstr)
+  </script>
+
   <script type="text/python" id="ex-python-map">
 # Given a list of string terms, find the one that occurs most often
 def most_common_term(terms):
