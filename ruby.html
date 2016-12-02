@@ -1,10 +1,9 @@
-  <script type="text/ruby" id="ex-ruby-structure">
+<script type="text/ruby" id="ex-ruby-structure">
 # No default program structure, execution begins immediately
-
 puts 'Hello world'
-  </script>
+</script>
       
-  <script type="text/ruby" id="ex-ruby-control">
+<script type="text/ruby" id="ex-ruby-control">
 null_var = nil
 true_var = true
 false_var = false
@@ -18,9 +17,9 @@ else
 end
   
 value = condition ? "Condition is truthy!" : "Condition is falsy!"
-  </script>
+</script>
 
-  <script type="text/ruby" id="ex-ruby-function">
+<script type="text/ruby" id="ex-ruby-function">
 # Ruby does not support overloading and if parameters are declared, they must be passed
 # Ruby is pass by value, though when the value refers to an object, the object may be modified
 
@@ -34,7 +33,7 @@ def add_concat(terms)
 end
 
 # This would be a runtime error: add_concat()
-  </script>
+</script>
 
 <script type="text/ruby" id="ex-ruby-var">
 # Variables have block scope
@@ -68,7 +67,7 @@ puts words.join(' ')
 puts strstr.gsub('ban', 'can')
 </script>
 
-  <script type="text/ruby" id="ex-ruby-map">
+<script type="text/ruby" id="ex-ruby-map">
 # Given a list of string terms, find the one that occurs most often
 def most_common_term(terms)
   term_map = {}
@@ -91,4 +90,4 @@ def most_common_term(terms)
 
   result
 end
-  </script>
+</script>
