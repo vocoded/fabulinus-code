@@ -147,6 +147,18 @@ $name = MyClass::getId();
 $count = MyClass::MAX_COUNT;
 </script>
 
+<script type="text/php" id="ex-php-regex">
+$subject = "hello world";
+$pattern = '/^hello/';
+
+// Saves any matches into the given array
+preg_match($pattern, $subject, $matches);
+
+if ($matches) {
+  print $matches[0];
+}
+</script>
+
 <script type="text/php" id="ex-php-datetime">
 // Set timezone globally
 date_default_timezone_set('UTC');
