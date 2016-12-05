@@ -173,3 +173,20 @@ $dateArray = getdate();
 // Creates a unix timestamp for the given parameters
 $time = mktime($hour, $minute, $second, $month, $day, $year);
 </script>
+
+<script type="text/php" id="ex-php-namespace">
+<?php namespace utils;
+
+class MyClass {
+    public static function hello() {
+        echo "Hello world";
+    }
+}
+
+<?php
+
+require_once 'utils.php';
+use utils;
+
+\utils\MyClass::hello();
+</script>
