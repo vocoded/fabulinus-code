@@ -157,6 +157,12 @@ preg_match($pattern, $subject, $matches);
 if ($matches) {
   print $matches[0];
 }
+
+// Substitution
+$pattern = '/^(\w+) (\w+)/i';
+$replacement = '$2 $1';
+
+print preg_replace($pattern, $replacement, $subject);
 </script>
 
 <script type="text/php" id="ex-php-datetime">
