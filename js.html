@@ -95,3 +95,17 @@ console.log(['hello', 'world'].join(' '));
 
 console.log(strstr.replace('ban', 'can'));
 </script>
+
+<script type="text/js" id="ex-js-datetime">
+var date = new Date();
+var secondsSinceEpoch = Math.round(date.getTime() / 1000);
+
+// Returns the current date as a string of form yyyy-mm-dd
+var dateStr = date.getFullYear() + "-" + (date.getMonth + 1) + "-" + date.getDate();
+
+// For UTC:
+
+var month = date.getUTCMonth() + 1; //months from 1-12
+var day = date.getUTCDate();
+var year = date.getUTCFullYear();
+</script>
