@@ -109,3 +109,18 @@ var month = date.getUTCMonth() + 1; //months from 1-12
 var day = date.getUTCDate();
 var year = date.getUTCFullYear();
 </script>
+
+<script type="text/js" id="ex-js-namespace">
+// ES5 has no official support for packages or namespaces
+// Various frameworks provide more standardized facilities for exporting global symbols
+
+// nodejs example: utils.js:
+module.exports = {
+    findMostCommonTerm: function(str) {
+    }
+};
+
+// main.js:
+var utils = require("./utils.js");
+utils.findMostCommonTerm("hello world hello");
+</script>
