@@ -123,4 +123,10 @@ module.exports = {
 // main.js:
 var utils = require("./utils.js");
 utils.findMostCommonTerm("hello world hello");
+
+// Very often, code will be defined in IIFE form (immediately invoked function expression)
+// to better handle dependency injection:
+(function ($, utils) {
+  // Do some work with libraries
+})(jquery, utils);
 </script>
