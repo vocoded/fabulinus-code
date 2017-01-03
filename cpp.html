@@ -6,6 +6,25 @@ int main(int argc, char* argv[])
 </script>
 
 <script type="text/cpp" id="ex-cpp-control">
+bool true_var = true;
+int *null_var = null;
+
+if (condition) {
+    std::cout << "Condition set << std::endl;
+} else if (other_condition && another_condition) {
+    std::cout << "Other conditions set" << std::endl;
+} else {
+    std::cout << "Fell through";
+}
+
+std::string value = condition ? "Condition is truthy!" : "Condition is falsy!";
+
+for (int i = 0; i < 100; i++) {
+    break;
+}
+
+std::vector<int> values = {1, 2, 3};
+std::for_each(values.begin(), values.end(), [](int &n) { std::cout << n << std::endl; });
 </script>
 
 <script type="text/cpp" id="ex-cpp-function">
