@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 int main(int argc, char* argv[])
 {
     bool true_var = true;
-    int *null_var = null;
+    int *null_var = nullptr;
 
     if (condition) {
         std::cout << "Condition set" << std::endl;
@@ -56,6 +56,12 @@ void add_concat(std::vector<std::string>& terms) {
 </script>
 
 <script type="text/cpp" id="ex-cpp-string">
+// There are two types of strings - standard C strings of char*, and std::string
+std::string str = "bananas";
+// They are mutable and do not support interpolation
+// Concatenation via + operator
+std::string strcat = "hello ";
+strcat += "world";
 </script>
 
 <script type="text/cpp" id="ex-cpp-regex">
