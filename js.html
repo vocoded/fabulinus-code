@@ -76,6 +76,13 @@ for (var i = 1; i <= 100; i++) {
 
 // Previous variables continues to exist
 console.log(i + ": " + j);
+
+// No form of constant exists, approximate with readonly properties
+MyGlobals = {
+    getInterval: function() {
+        return 1000;
+    }
+};
 </script>
 
 <script type="text/js" id="ex-js-string">
