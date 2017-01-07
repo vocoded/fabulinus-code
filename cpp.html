@@ -50,6 +50,31 @@ void add_concat(std::vector<std::string>& terms) {
 </script>
 
 <script type="text/cpp" id="ex-cpp-map">
+// Given a list of string terms, find the one that occurs most often
+std::string most_common_term(std::vector<std::string> terms) {
+    std::map<std::string, int> term_map;
+
+    for (auto const &term : terms) {
+        if (term_map.find(term) != term_map.end()) {
+            term_map[term] += 1;
+        } else {
+            term_map[term] = 1;
+        }
+    }
+
+    int max = 0;
+    std::string result;
+
+    for (auto const &kv : term_map) {
+        if (kv.second > max) {
+            result = kv.first;
+            max = kv.second;
+        }
+    }
+
+    return result;
+}
+
 </script>
 
 <script type="text/cpp" id="ex-cpp-var">
