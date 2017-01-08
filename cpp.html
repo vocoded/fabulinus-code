@@ -95,6 +95,16 @@ strcat += "world";
 </script>
 
 <script type="text/cpp" id="ex-cpp-regex">
+#include <regex>
+
+const char subject[] = "hello world";
+std::regex pattern ("^hello");
+std::cmatch cm;
+std::regex_match (subject, cm, pattern);
+
+if (cm.size()) {
+    std::cout << cm[0] << std::endl;
+}
 </script>
 
 <script type="text/cpp" id="ex-cpp-datetime">
