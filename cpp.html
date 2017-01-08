@@ -34,12 +34,14 @@ int main(int argc, char* argv[])
 
 <script type="text/cpp" id="ex-cpp-function">
 // Increments the given integer local to the function
-void increment(int x) {
+void increment(int x)
+{
     x += 1;
 }
 
 // Modifying the argument requires passing it by reference or pointer
-void add_concat(std::vector<std::string>& terms) {
+void add_concat(std::vector<std::string>& terms)
+{
     // Unfortunately there's no std::vector.join()
     std::ostringstream os;
     std::copy(elements.begin(), elements.end() - 1, std::ostream_iterator<std::string>(os, ""));
@@ -51,7 +53,8 @@ void add_concat(std::vector<std::string>& terms) {
 
 <script type="text/cpp" id="ex-cpp-map">
 // Given a list of string terms, find the one that occurs most often
-std::string most_common_term(std::vector<std::string> terms) {
+std::string most_common_term(std::vector<std::string> terms)
+{
     std::map<std::string, int> term_map;
 
     for (auto const &term : terms) {
@@ -98,4 +101,18 @@ strcat += "world";
 </script>
 
 <script type="text/cpp" id="ex-cpp-namespace">
+namespace utils
+{
+    void computeAverage(std::vector<int> values)
+    {
+    }
+}
+
+utils::computeAverage(vals);
+
+// Generally not recommended - imports all from the namespace
+using namespace utils;
+
+// Using declaration - makes only the given name available
+using utils::computeAverage;
 </script>
