@@ -196,3 +196,20 @@ use utils;
 
 \utils\MyClass::hello();
 </script>
+
+<script type="text/php" id="ex-php-io2">
+foreach (file('strings.txt') as $line) {
+   echo $line . "\n";
+}
+
+# Manually grab content of file
+$handle = fopen("strings.txt", "r");
+$lines = [];
+if ($handle) {
+    while (($line = fgets($handle)) !== false) {
+        $line[] = $line;
+    }
+
+    fclose($handle);
+}
+</script>
