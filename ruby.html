@@ -92,6 +92,18 @@ def most_common_term(terms)
 end
 </script>
 
+<script type="text/ruby" id="ex-ruby-regex">
+subject = "hello world"
+match = /^hello/.match(subject)
+
+if (match)
+  puts match[0]
+end
+
+# Substitution
+puts subject.gsub(/^(\w+) (\w+)/i, '\2 \1')
+</script>
+
 <script type="text/ruby" id="ex-ruby-io2">
 File.open('strings.txt').each do |line|
   print "#{line.chomp}"
