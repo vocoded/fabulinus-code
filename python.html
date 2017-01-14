@@ -1,4 +1,4 @@
-  <script type="text/python" id="ex-python-control">
+<script type="text/python" id="ex-python-control">
 null_var = None
 true_var = True
 false_var = False
@@ -13,9 +13,9 @@ else:
 
 # Equivalent of ternary	
 value = "Condition is truthy!" if condition else "Condition is falsy!"
-  </script>
+</script>
 
-  <script type="text/python" id="ex-python-function">
+<script type="text/python" id="ex-python-function">
 def eat_bananas(how_many):
     print "I'm going to eat %d bananas" % how_many
 
@@ -23,30 +23,36 @@ def eat_bananas(how_many):
 # def eat_bananas():
 
 eat_bananas(10)
-  </script>
+</script>
 
-  <script type="text/python" id="ex-python-structure">
+<script type="text/python" id="ex-python-structure">
 # No default program structure, execution begins immediately
 import string
 
 print 'Hello world'
-  </script>
-
-  <script type="text/python" id="ex-python-string">
- import re
-
- str = "bananas"
- strstr = "let's go %s" % str
- strcat = "hello " + "world"
-
- print re.sub(r"ban", "can", strstr)
 </script>
 
-  <script type="text/python" id="ex-python-regex">
- import re
+<script type="text/python" id="ex-python-string">
+import re
 
- html = "<s\npan>\n\n</span>"
- print re.sub(r"<([^>]+)\n", "\\1", html)
+str = "bananas"
+strstr = "let's go %s" % str
+strcat = "hello " + "world"
+
+print re.sub(r"ban", "can", strstr)
+</script>
+
+<script type="text/python" id="ex-python-regex">
+import re
+
+subject = "hello world"
+match = re.match(r"hello", subject)
+
+if (match):
+    print match.group(0)
+
+html = "<s\npan>\n\n</span>"
+print re.sub(r"<([^>]+)\n", "\\1", html)
 </script>
 
 <script type="text/python" id="ex-python-map">
