@@ -40,6 +40,13 @@ strstr = "let's go %s" % str
 strcat = "hello " + "world"
 
 print re.sub(r"ban", "can", strstr)
+
+# For ASCII encoding, at least:
+print len(strstr)
+# Subscripting to get specific character
+print strstr[0]
+# IndexOf; returns -1 if not found
+print strstr.find('ba')
 </script>
 
 <script type="text/python" id="ex-python-regex">
