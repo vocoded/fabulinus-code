@@ -25,25 +25,25 @@
 </head>
 <body>
 
+  <h1>Fabulinus - The Practical Language Reference</h1>
+
+  <select name="language" id="language-select" class="form-control">
+    <option value="none">Select...
+    <option value="ruby">Ruby
+    <option value="python">Python
+    <option value="php">PHP
+    <option value="js">Javascript ES5
+    <option value="cpp">C++
+    <option value="java">Java
+      <!--
+      <option value="es6">Javascript ES6
+      <option value="objc">Objective-C
+      -->
+  </select>
+
   <div id="content"></div>
   
   <script type="text/markdown" id="md">
-# Fabulinus - The Practical Language Reference
-
-<select name="language" id="language-select" class="form-control">
-  <option value="none">Select...
-  <option value="ruby">Ruby
-  <option value="python">Python
-  <option value="php">PHP
-  <option value="js">Javascript ES5
-  <option value="cpp">C++
-  <!--
-  <option value="es6">Javascript ES6
-  <option value="java">Java
-  <option value="objc">Objective-C
-  -->
-</select>
-
 ## Program Structure
 
 <div id="ex-structure">
@@ -146,11 +146,20 @@
 	  var setCodeBlocks = function(lang) {
           blocks.forEach(function(block) {
               var code = getCodeBlock(lang, block);
-              $('#ex-' + block).html("<pre>" + code + "</pre>");
+
+              if (code !== "" && code !== "TBD") {
+                  $('#ex-' + block).html("<pre>" + code + "</pre>").show();
+              } else {
+                  $('#ex-' + block).hide();
+              }
           });
       };
 
-      $('#content').html(marked($('#md').html()));
+	  var ensureDocument = function () {
+	      if (!$('#ex-structure').length) {
+              $('#content').html(marked($('#md').html()));
+          }
+      };
 
       $('#language-select').on('change', function (e) {
           var lang = $('#language-select').val();
@@ -161,6 +170,7 @@
           if (!loaded[lang] && !loading) {
               loading = true;
               fetchCodeBlocks(lang, function () {
+                  ensureDocument();
                   setCodeBlocks(lang);
               });
           } else if (loaded[lang]) {
