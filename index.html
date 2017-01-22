@@ -41,77 +41,50 @@
       -->
   </select>
 
-  <div id="content"></div>
+  <div id="content">
+    <div id="ex-structure">
+    </div>
+    <div id="ex-control">
+    </div>
+    <div id="ex-function">
+    </div>
+    <div id="ex-var">
+    </div>
+    <div id="ex-string">
+    </div>
+    <div id="ex-map">
+    </div>
+    <div id="ex-io">
+    </div>
+    <div id="ex-io2">
+    </div>
+    <div id="ex-class">
+    </div>
+    <div id="ex-datetime">
+    </div>
+    <div id="ex-regex">
+    </div>
+    <div id="ex-namespace">
+    </div>
+  </div>
   
-  <script type="text/markdown" id="md">
-## Program Structure
 
-<div id="ex-structure">
-</div>
-
-## Control Flow
-
-<div id="ex-control">
-</div>
-
-## Function Declaration and Usage
-
-<div id="ex-function">
-</div>
-
-## Variable Declarations and Scope
-
-<div id="ex-var">
-</div>
-
-## Strings
-
-<div id="ex-string">
-</div>
-
-## Arrays and Maps
-
-<div id="ex-map">
-</div>
-
-## Basic I/O
-
-<div id="ex-io">
-</div>
-
-## Intermediate I/O
-
-<div id="ex-io2">
-</div>
-
-## Classes
-
-<div id="ex-class">
-</div>
-
-## Date and Time
-
-<div id="ex-datetime">
-</div>
-
-## Regular Expressions
-
-<div id="ex-regex">
-</div>
-
-## Namespacing/Packaging
-
-<div id="ex-namespace">
-</div>
-
-  </script>
-  
   <script>
 
   $(function() {
       var blocks = [
-          'structure', 'control', 'function', 'var', 'string', 'map',
-          'io', 'io2', 'class', 'datetime', 'regex', 'namespace'
+          ['structure', 'Program Structure'],
+          ['control', 'Control Flow'],
+          ['function', 'Function Declaration and Usage'],
+          ['var', 'Variable Declarations and Scope'],
+          ['string', 'Strings'],
+          ['map', 'Arrays and Maps'],
+          ['io', 'Basic I/O'],
+          ['io2', 'Intermediate I/O'],
+          ['class', 'Classes'],
+          ['datetime', 'Date and Time'],
+          ['regex', 'Regular Expressions'],
+          ['namespace', 'Namespacing/Packaging']
       ];
 
       var loading = false;
@@ -145,20 +118,14 @@
 	
 	  var setCodeBlocks = function(lang) {
           blocks.forEach(function(block) {
-              var code = getCodeBlock(lang, block);
+              var code = getCodeBlock(lang, block[0]);
 
               if (code !== "" && code !== "TBD") {
-                  $('#ex-' + block).html("<pre>" + code + "</pre>").show();
+                  $('#ex-' + block[0]).html("<h2>" + block[1] + "</h2><pre>" + code + "</pre>").show();
               } else {
-                  $('#ex-' + block).hide();
+                  $('#ex-' + block[0]).hide();
               }
           });
-      };
-
-	  var ensureDocument = function () {
-	      if (!$('#ex-structure').length) {
-              $('#content').html(marked($('#md').html()));
-          }
       };
 
       $('#language-select').on('change', function (e) {
@@ -170,7 +137,6 @@
           if (!loaded[lang] && !loading) {
               loading = true;
               fetchCodeBlocks(lang, function () {
-                  ensureDocument();
                   setCodeBlocks(lang);
               });
           } else if (loaded[lang]) {
