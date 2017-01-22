@@ -16,6 +16,7 @@ $(function() {
 
     var loading = false;
     var loaded = {};
+    var blockTemplate = _.template($('#code-block-template').html());
 
     var fetchCodeBlocks = function(lang, onSuccess) {
         $.get({
@@ -48,7 +49,7 @@ $(function() {
             var code = getCodeBlock(lang, block[0]);
 
             if (code !== "" && code !== "TBD") {
-                $('#ex-' + block[0]).html("<h2>" + block[1] + "</h2><pre>" + code + "</pre>").show();
+                $('#ex-' + block[0]).html(blockTemplate({ title: block[1], code: code })).show();
             } else {
                 $('#ex-' + block[0]).hide();
             }
