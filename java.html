@@ -50,6 +50,23 @@ void increment(int x) {
 </script>
 
 <script type="text/java" id="ex-java-class">
+public class MyClass {
+    public static final int MAX_COUNT = 100;
+    private int count;
+    private static String id = "MyClass";
+
+    public MyClass(int count) {
+        this.count = count;
+    }
+
+    public static String getId() {
+        return id;
+    }
+}
+
+MyClass instance = new MyClass(10);
+String name = MyClass.getId();
+int count = MyClass.MAX_COUNT;
 </script>
 
 <script type="text/java" id="ex-java-regex">
