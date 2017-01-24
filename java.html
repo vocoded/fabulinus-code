@@ -44,6 +44,20 @@ void increment(int x) {
 
 
 <script type="text/java" id="ex-java-string">
+// Strings are immutable and declared implicitly
+String str = "bananas";
+// Concatenation via + operator
+String strcat = "hello " + "world";
+// Usually for large concat ops, you'll use StringBuffer or StringBuilder
+// StringBuffer is threadsafe, StringBuilder is not
+StringBuilder sb = new StringBuilder("hello");
+sb.append(" world");
+
+// String equality usually checked via .equals, otherwise you are comparing
+// object equality
+if (strcat.equals("hello world")) {
+}
+
 </script>
 
 <script type="text/java" id="ex-java-map">
