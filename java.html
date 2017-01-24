@@ -53,10 +53,17 @@ String strcat = "hello " + "world";
 StringBuilder sb = new StringBuilder("hello");
 sb.append(" world");
 
+// Can use String.format for variable interpolation
+String strstr = String.format("let's go %s", str);
+
 // String equality usually checked via .equals, otherwise you are comparing
 // object equality
 if (strcat.equals("hello world")) {
 }
+
+int length = strstr.length();
+char c = strstr.charAt(0);
+System.out.println(str.indexOf("ba"));
 
 </script>
 
