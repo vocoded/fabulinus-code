@@ -37,9 +37,18 @@ void increment(int x) {
     x += 1;
 }
 
+// All parameters are passed by value (or "value reference", with objects)
+void addConcat(ArrayList<string> terms) {
+    terms.add(String.join("", terms));
+}
 </script>
 
 <script type="text/java" id="ex-java-var">
+// Sadly, Java has no object initializers or collection literals
+List<String> names = Arrays.asList("hello", "world");
+
+// Using the Java 8 streams API:
+ArrayList<String> names = Stream.of("hello", "world").collect(Collectors.toCollection(ArrayList::new));
 </script>
 
 
@@ -68,7 +77,9 @@ System.out.println(str.indexOf("ba"));
 // Start index, end index exclusive
 System.out.println(strstr.substring($strstr, 0, 3));
 
+// Split operates as a regex
 String[] words = String.split(" ");
+
 // Static join method in Java 1.8, otherwise it's manual
 System.out.println(String.join(" ", "hello", "world", "today"));
 </script>
