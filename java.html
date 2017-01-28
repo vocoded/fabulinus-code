@@ -91,6 +91,30 @@ System.out.println(String.join(" ", "hello", "world", "today"));
 </script>
 
 <script type="text/java" id="ex-java-map">
+// Given a list of string terms, find the one that occurs most often
+String mostCommonTerm(List<String> terms) {
+    HashMap<String, int> termMap = new HashMap<>();
+    for (String term : terms) {
+        if (termMap.containsKey(term)) {
+            termMap.put(termMap.get(term) + 1);
+        } else {
+            termMap.put(term, 1);
+        }
+    }
+
+    int max = 0;
+    String result = null;
+
+    for (Map.Entry<String, int> entry : map.entrySet()) {
+        if (entry.getValue() > max) {
+            result = entry.getKey();
+        }
+    }
+
+    termMap.remove(result);
+
+    return result;
+}
 </script>
 
 <script type="text/java" id="ex-java-class">
