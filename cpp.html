@@ -6,8 +6,6 @@ int main(int argc, char* argv[])
 </script>
 
 <script type="text/cpp" id="ex-cpp-control">
-#include "stdafx.h"
-
 int main(int argc, char* argv[])
 {
     bool true_var = true;
@@ -18,7 +16,7 @@ int main(int argc, char* argv[])
     } else if (other_condition && another_condition) {
         std::cout << "Other conditions set" << std::endl;
     } else {
-        std::cout << "Fell through";
+        std::cout << "Fell through" << std::endl;
     }
 
     std::string value = condition ? "Condition is truthy!" : "Condition is falsy!";
@@ -44,8 +42,8 @@ void add_concat(std::vector<std::string>& terms)
 {
     // Unfortunately there's no std::vector.join()
     std::ostringstream os;
-    std::copy(elements.begin(), elements.end() - 1, std::ostream_iterator<std::string>(os, ""));
-    os << *elements.rbegin();
+    std::copy(terms.begin(), terms.end() - 1, std::ostream_iterator<std::string>(os, ""));
+    os << *terms.rbegin();
 
     terms.push_back(os.str());
 }
@@ -94,6 +92,7 @@ std::string strcat = "hello ";
 strcat += "world";
 
 std::cout << strcat.length() << std::endl;
+
 // Alternatively, strcat.at(0)
 std::cout << strcat[0] << std::endl;
 </script>
