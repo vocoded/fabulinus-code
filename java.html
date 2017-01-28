@@ -37,9 +37,27 @@ int plusOne(int x) {
     return x + 1;
 }
 
+// Java supports varargs as the last parameter
+int sum(int... args) {
+    int sum = 0;
+
+    for (int arg : args) {
+        sum += arg;
+    }
+
+    // In Java 8, this is even simpler:
+    // return Arrays.stream(args).sum();
+
+    return sum;
+}
+
 // All parameters are passed by value (or "value reference", with objects)
 void addConcat(ArrayList<string> terms) {
+    // This change will be reflected outside the method
     terms.add(String.join("", terms));
+
+    // This will not
+    terms = new ArrayList<>();
 }
 </script>
 
