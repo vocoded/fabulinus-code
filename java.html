@@ -8,13 +8,9 @@ public class Example {
 </script>
   
 <script type="text/java" id="ex-java-control">
-String null_var = null;
-boolean true_var = true;
-boolean false_var = false;
-
 if (condition) {
     System.out.println("Condition set");
-} else if (other_condition && another_condition) {
+} else if (otherCondition && anotherCondition) {
     System.out.println("Other conditions set");
 } else {
     System.out.println("Fell through");
@@ -26,7 +22,7 @@ for (int i = 0; i < 100; i++) {
     break;
 }
 
-for (int i : val_array) {
+for (int i : valArray) {
     System.out.println(i);
 }
 </script>
@@ -37,6 +33,10 @@ void increment(int x) {
     x += 1;
 }
 
+int plusOne(int x) {
+    return x + 1;
+}
+
 // All parameters are passed by value (or "value reference", with objects)
 void addConcat(ArrayList<string> terms) {
     terms.add(String.join("", terms));
@@ -44,6 +44,10 @@ void addConcat(ArrayList<string> terms) {
 </script>
 
 <script type="text/java" id="ex-java-var">
+boolean trueVar = true;
+String name = "wally";
+Object isNull = null;
+
 // Sadly, Java has no object initializers or collection literals
 List<String> names = Arrays.asList("hello", "world");
 
@@ -55,14 +59,16 @@ ArrayList<String> names = Stream.of("hello", "world").collect(Collectors.toColle
 <script type="text/java" id="ex-java-string">
 // Strings are immutable and declared implicitly
 String str = "bananas";
+
 // Concatenation via + operator
 String strcat = "hello " + "world";
+
 // Usually for large concat ops, you'll use StringBuffer or StringBuilder
 // StringBuffer is threadsafe, StringBuilder is not
 StringBuilder sb = new StringBuilder("hello");
 sb.append(" world");
 
-// Can use String.format for variable interpolation
+// Use String.format for variable interpolation
 String strstr = String.format("let's go %s", str);
 
 // String equality usually checked via .equals, otherwise you are comparing
