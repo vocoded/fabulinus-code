@@ -104,7 +104,7 @@ System.out.println(strstr.substring(0, 3));
 // Split operates as a regex
 String[] words = String.split(" ");
 
-// Static join method in Java 1.8, otherwise it's manual
+// Static join method in Java 8, otherwise it's manual
 System.out.println(String.join(" ", "hello", "world", "today"));
 </script>
 
@@ -159,6 +159,10 @@ int count = MyClass.MAX_COUNT;
 </script>
 
 <script type="text/java" id="ex-java-datetime">
+// Dates and times in Java are notoriously difficult.  Java 8 packaged up the JodaTime
+// library into an official package
+ZonedDateTime utc = ZonedDateTime.now(ZoneOffset.UTC);
+utc.toEpochSecond();
 </script>
 
 <script type="text/java" id="ex-java-namespace">
