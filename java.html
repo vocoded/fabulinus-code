@@ -159,10 +159,14 @@ int count = MyClass.MAX_COUNT;
 </script>
 
 <script type="text/java" id="ex-java-datetime">
-// Dates and times in Java are notoriously difficult.  Java 8 packaged up the JodaTime
-// library into an official package
+// Dates and times in Java are notoriously difficult.  Java 8 adopted the JodaTime
+// library into an official package, easing things a bit
 ZonedDateTime utc = ZonedDateTime.now(ZoneOffset.UTC);
 utc.toEpochSecond();
+
+// Convert any instance of a "TemporalAccessor", ie LocalDateTime, ZonedDateTime, to a string
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+String dateString = formatter.format(utc);
 </script>
 
 <script type="text/java" id="ex-java-namespace">
