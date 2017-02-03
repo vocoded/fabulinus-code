@@ -47,6 +47,12 @@ void add_concat(std::vector<std::string>& terms)
 
     terms.push_back(os.str());
 }
+
+// Method marked constant so it can be called on a constant variable/reference
+std::string MyClass::getValue() const
+{
+    return m_label + "!";
+}
 </script>
 
 <script type="text/cpp" id="ex-cpp-map">
