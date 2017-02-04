@@ -57,11 +57,12 @@ std::string MyClass::getValue() const
 
 <script type="text/cpp" id="ex-cpp-map">
 // Given a list of string terms, find the one that occurs most often
-std::string most_common_term(std::vector<std::string> terms)
+std::string most_common_term(const std::vector<std::string>& terms)
 {
     std::map<std::string, int> term_map;
 
     for (auto const &term : terms) {
+        // Alternately, term_map.count(term) == 0
         if (term_map.find(term) != term_map.end()) {
             term_map[term] += 1;
         } else {
