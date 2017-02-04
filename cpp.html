@@ -8,9 +8,6 @@ int main(int argc, char* argv[])
 <script type="text/cpp" id="ex-cpp-control">
 int main(int argc, char* argv[])
 {
-    bool true_var = true;
-    int *null_var = nullptr;
-
     if (condition) {
         std::cout << "Condition set" << std::endl;
     } else if (other_condition && another_condition) {
@@ -86,6 +83,9 @@ std::string most_common_term(const std::vector<std::string>& terms)
 </script>
 
 <script type="text/cpp" id="ex-cpp-var">
+bool true_var = true;
+int *null_var = nullptr;
+
 // Unlike other languages, variables are instantiated when defined
 MyClass mine;  // Creates a new object of the type MyClass using the default constructor
 
@@ -105,6 +105,10 @@ std::cout << strcat.length() << std::endl;
 
 // Alternatively, strcat.at(0)
 std::cout << strcat[0] << std::endl;
+
+if (!str.compare("bananas")) {
+    std::cout << "Strings are equal!" << std::endl;
+}
 </script>
 
 <script type="text/cpp" id="ex-cpp-regex">
