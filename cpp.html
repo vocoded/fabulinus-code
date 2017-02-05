@@ -43,6 +43,9 @@ void add_concat(std::vector<std::string>& terms)
     os << *terms.rbegin();
 
     terms.push_back(os.str());
+
+    // Unlike Java and C#, assigning the reference to another object will carry beyond the method
+    terms = { "1", "2", "3" };
 }
 
 // Method marked constant so it can be called on a constant variable/reference
