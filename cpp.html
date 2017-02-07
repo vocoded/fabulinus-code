@@ -53,6 +53,10 @@ std::string MyClass::getValue() const
 {
     return m_label + "!";
 }
+
+// Lambdas have different captures modes:
+[=] { std::cout << val << std::endl; }  // All outer variables by value
+[&] { std::cout << val << std::endl; }  // All outer variables by reference
 </script>
 
 <script type="text/cpp" id="ex-cpp-map">
@@ -134,7 +138,7 @@ time_t seconds = std::time(0);
 <script type="text/cpp" id="ex-cpp-namespace">
 namespace utils
 {
-    void computeAverage(std::vector<int> values)
+    void computeAverage(std::vector<int>& values)
     {
     }
 }
