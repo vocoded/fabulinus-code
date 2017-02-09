@@ -51,7 +51,15 @@ void add_concat(std::vector<std::string>& terms)
 // Method marked constant so it can be called on a constant variable/reference
 std::string MyClass::getValue() const
 {
-    return m_label + "!";
+    return m_value + "!";
+}
+
+// Generally you won't return references unless providing mutable access to a long-lived
+// data member, such as an instance field.  Even then, cases ought to be limited to things
+// a subscript overload (ie, so you can create an lvalue such as myObject[key] = "xyz")
+std::string& MyClass:getValue()
+{
+    return m_value;
 }
 
 // Lambdas have different captures modes:
