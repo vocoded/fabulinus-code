@@ -103,6 +103,10 @@ int *null_var = nullptr;
 
 // Unlike other languages, variables are instantiated when defined
 MyClass mine;  // Creates a new object of the type MyClass using the default constructor
+MyClass *myPtr = new MyClass();
+
+mine.myMethod();
+myPtr->myMethod();  // Equivalent to (*myPtr).myMethod()
 
 std::vector<std::string> ary = { "hello", "world" };
 std::map<std::string, std::string> ary = {{"hello", "world"}};
