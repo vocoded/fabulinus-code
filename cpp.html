@@ -130,6 +130,17 @@ if (!str.compare("bananas")) {
 }
 </script>
 
+<script type="text/cpp" id="ex-cpp-class">
+// Enumerations are by default of type int and 0-based
+enum class MyEnum {
+    Value1,
+    Value2 = 2
+};
+
+MyEnum val = static_cast<MyEnum>(0);
+int intVal = static_cast<int>(val);
+</script>
+
 <script type="text/cpp" id="ex-cpp-regex">
 #include <regex>
 
