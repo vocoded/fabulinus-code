@@ -1,4 +1,6 @@
 <script type="text/cpp" id="ex-cpp-structure">
+#include "MyHeader.h"
+
 // Exactly one file in the compiled unit defines a main method:
 int main(int argc, char* argv[])
 {
@@ -65,6 +67,7 @@ std::string& MyClass:getValue()
 // Lambdas have different captures modes:
 [=] { std::cout << val << std::endl; }  // All outer variables by value
 [&] { std::cout << val << std::endl; }  // All outer variables by reference
+[&val] { std::cout << val << std::endl; } // Specific variable by reference
 </script>
 
 <script type="text/cpp" id="ex-cpp-map">
