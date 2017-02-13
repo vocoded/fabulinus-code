@@ -134,6 +134,32 @@ if (!str.compare("bananas")) {
 </script>
 
 <script type="text/cpp" id="ex-cpp-class">
+// Classes are usually declared in a header file and implemented in a source file
+class MyClass : MyParentClass
+{
+    public:
+        MyClass();
+        ~MyClass();
+        static std::string getId();
+    private:
+        int _count;
+}
+
+// In MyClass.cpp:
+#include "MyClass.h"
+
+MyClass::MyClass()
+{
+}
+
+MyClass::~MyClass()
+{
+}
+
+std::string MyClass::getId()
+{
+}
+
 // Enumerations are by default of type int and 0-based
 enum Label {
     Field1,
@@ -157,7 +183,7 @@ int intVal = static_cast<int>(val);
 const char subject[] = "hello world";
 std::regex pattern ("^hello");
 std::cmatch cm;
-std::regex_match (subject, cm, pattern);
+std::regex_match(subject, cm, pattern);
 
 if (cm.size()) {
     std::cout << cm[0] << std::endl;
