@@ -138,7 +138,7 @@ if (!str.compare("bananas")) {
 class MyClass : MyParentClass
 {
     public:
-        MyClass();
+        MyClass(int count);
         ~MyClass();
         static std::string getId();
     private:
@@ -148,7 +148,8 @@ class MyClass : MyParentClass
 // In MyClass.cpp:
 #include "MyClass.h"
 
-MyClass::MyClass()
+// Fields may be initialized in the constructor
+MyClass::MyClass(int count) : _count(count)
 {
 }
 
