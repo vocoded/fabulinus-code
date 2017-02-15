@@ -36,6 +36,12 @@ void increment(int x)
     x += 1;
 }
 
+// Increments the given integer globally
+void incrementDirect(int& x)
+{
+    x += 1;
+}
+
 // Modifying the argument requires passing it by reference or pointer
 void add_concat(std::vector<std::string>& terms)
 {
@@ -102,11 +108,16 @@ std::string most_common_term(const std::vector<std::string>& terms)
 
 <script type="text/cpp" id="ex-cpp-var">
 bool true_var = true;
-int *null_var = nullptr;
+int int_var = 10;
+
+// C++ includes both pointers and references
+int& int_ref = int_var;
+int *int_ptr = &int_var;
+int_ptr = nullptr;
 
 // Unlike other languages, variables are instantiated when defined
-MyClass mine;  // Creates a new object of the type MyClass using the default constructor
-MyClass *myPtr = new MyClass();
+MyClass mine;  // Creates a new object of the type MyClass using the default constructor (on the stack)
+MyClass *myPtr = new MyClass();  // Creates a new object on the heap (remember to delete!)
 
 mine.myMethod();
 myPtr->myMethod();  // Equivalent to (*myPtr).myMethod()
