@@ -161,6 +161,12 @@ std::string MyClass::getId()
 {
 }
 
+// Structs and classes are functionally equivalent, except that default member visibility is public
+struct MyStruct
+{
+    int count;
+}
+
 // Enumerations are by default of type int and 0-based
 enum Label {
     Field1,
