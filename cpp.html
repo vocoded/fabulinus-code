@@ -124,6 +124,12 @@ myPtr->myMethod();  // Equivalent to (*myPtr).myMethod()
 
 std::vector<std::string> ary = { "hello", "world" };
 std::map<std::string, std::string> ary = {{"hello", "world"}};
+
+// Copy constructors are called whenever a variable is assigned another of the same type,
+// is passed to a function, or is returned from a function:
+MyClass mine2 = mine;
+void process(MyClass mine) {}
+MyClass getMine() { MyClass m; return m; }
 </script>
 
 <script type="text/cpp" id="ex-cpp-string">
@@ -151,6 +157,7 @@ class MyClass : MyParentClass
     public:
         MyClass(int count);
         ~MyClass();
+        int getCount();
         static std::string getId();
     private:
         int _count;
@@ -166,6 +173,13 @@ MyClass::MyClass(int count) : _count(count)
 
 MyClass::~MyClass()
 {
+}
+
+int MyClass::getCount()
+{
+    // All member functions have access to an implicit "this" pointer;
+    // Here we could also write this->_count;
+    return _count;
 }
 
 std::string MyClass::getId()
