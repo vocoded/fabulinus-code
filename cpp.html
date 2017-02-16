@@ -125,8 +125,8 @@ myPtr->myMethod();  // Equivalent to (*myPtr).myMethod()
 std::vector<std::string> ary = { "hello", "world" };
 std::map<std::string, std::string> ary = {{"hello", "world"}};
 
-// Copy constructors are called whenever a variable is assigned another of the same type,
-// is passed to a function, or is returned from a function:
+// Copy constructors are called whenever a variable is declared via assignment,
+// passed to a function, or returned from a function:
 MyClass mine2 = mine;
 void process(MyClass mine) {}
 MyClass getMine() { MyClass m; return m; }
