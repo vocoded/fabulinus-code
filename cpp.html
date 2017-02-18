@@ -111,8 +111,16 @@ bool true_var = true;
 int int_var = 10;
 
 // C++ includes both pointers and references
+// A reference is sometimes called a "smart pointer", other times an "alias" -
+// it must always refer to something but does not require any dereferencing
 int& int_ref = int_var;
-int *int_ptr = &int_var;
+int* int_ptr = &int_var;
+
+// Both of these are equivalent to int_var = 11;
+*int_ptr = 11;
+int_ref = 11;
+
+// Pointers may be null
 int_ptr = nullptr;
 
 // Unlike other languages, variables are instantiated when defined
