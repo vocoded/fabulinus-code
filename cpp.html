@@ -130,6 +130,9 @@ std::map<std::string, std::string> ary = {{"hello", "world"}};
 MyClass mine2 = mine;
 void process(MyClass mine) {}
 MyClass getMine() { MyClass m; return m; }
+
+// This is the assignment operator; it will copy the target, though not with the copy constructor
+mine = *myPtr;
 </script>
 
 <script type="text/cpp" id="ex-cpp-string">
