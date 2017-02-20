@@ -146,7 +146,11 @@ mine = *myPtr;
 <script type="text/cpp" id="ex-cpp-string">
 // There are two types of strings - standard C strings of char*, and std::string
 std::string str = "bananas";
+
 // They are mutable and do not support interpolation
+// They store a sequence of bytes, so encoding must be handled manually or
+// prefer std::wstring
+
 // Concatenation via + operator
 std::string strcat = "hello ";
 strcat += "world";
