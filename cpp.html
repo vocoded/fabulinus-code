@@ -144,12 +144,11 @@ mine = *myPtr;
 </script>
 
 <script type="text/cpp" id="ex-cpp-string">
-// There are two types of strings - standard C strings of char*, and std::string
+// There are two main types of strings - standard C strings of char*, and std::string
 std::string str = "bananas";
 
 // They are mutable and do not support interpolation
-// They store a sequence of bytes, so encoding must be handled manually or
-// prefer std::wstring
+// They store a sequence of bytes, so encoding must be handled manually
 
 // Concatenation via + operator
 std::string strcat = "hello ";
@@ -175,6 +174,7 @@ if (str.find("oranges") == std::string::npos) {
 // Classes are usually declared in a header file and implemented in a source file
 class MyClass : MyParentClass
 {
+    // Visibility levels are public, private, and protected
     public:
         MyClass(int count);
         ~MyClass();
@@ -203,6 +203,7 @@ int MyClass::getCount()
     return _count;
 }
 
+// Note, no "static" keyword in the method implementation
 std::string MyClass::getId()
 {
 }
