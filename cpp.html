@@ -42,6 +42,12 @@ void incrementDirect(int& x)
     x += 1;
 }
 
+// Arguments can have default values
+void printValue(int x = 0)
+{
+    std::cout << x << std::endl;
+}
+
 // Modifying the argument requires passing it by reference or pointer
 void add_concat(std::vector<std::string>& terms)
 {
