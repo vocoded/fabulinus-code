@@ -107,6 +107,9 @@ std::string most_common_term(const std::vector<std::string>& terms)
         }
     }
 
+    // Remove a key from the map
+    term_map.erase(result);
+
     return result;
 }
 
