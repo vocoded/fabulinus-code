@@ -1,4 +1,5 @@
 <script type="text/cpp" id="ex-cpp-structure">
+// In general, you'll want to keep #includes in header files to a minimum, preferring them in source files if possible
 #include "MyHeader.h"
 
 // Exactly one file in the compiled unit defines a main method:
@@ -70,7 +71,7 @@ std::string MyClass::getValue() const
 
 // Generally you won't return references unless providing mutable access to a long-lived
 // data member, such as an instance field.  Even then, cases ought to be limited to things
-// a subscript overload (ie, so you can create an lvalue such as myObject[key] = "xyz")
+// like a subscript overload (ie, so you can create an lvalue such as myObject[key] = "xyz")
 std::string& MyClass:getValue()
 {
     return m_value;
