@@ -56,7 +56,9 @@ print strstr[0:3]
 import re
 
 subject = "hello world"
-match = re.match(r"hello", subject)
+
+# Python offers both a "match" and "search" method; confusingly, "match" only matches at the beginning of a string
+match = re.search(r"hello", subject)
 
 if (match):
     print match.group(0)
