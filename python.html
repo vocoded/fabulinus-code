@@ -22,6 +22,10 @@ def eat_bananas(how_many):
 # Function overloading not allowed, this would overwrite the definition:
 # def eat_bananas():
 
+# However, arguments can have defaults, though they are evaluated only once!
+def eat_bananas(how_many = 1):
+    print "I should eat %d bananas" % how_many
+
 eat_bananas(10)
 </script>
 
@@ -37,6 +41,8 @@ import re
 
 str = "bananas"
 strstr = "let's go %s" % str
+# Multiple parameters must be passed in a list
+strstr1 = "let's to %s %s" % (str, str)
 strcat = "hello " + "world"
 
 print re.sub(r"ban", "can", strstr)
