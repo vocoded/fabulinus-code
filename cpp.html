@@ -49,7 +49,9 @@ void printValue(int x = 0)
     std::cout << x << std::endl;
 }
 
-// Modifying the argument requires passing it by reference or pointer
+printValue();
+
+// Modifying an argument requires passing it by reference or pointer
 void add_concat(std::vector<std::string>& terms)
 {
     // Unfortunately there's no std::vector.join()
@@ -156,6 +158,8 @@ mine = *myPtr;
 <script type="text/cpp" id="ex-cpp-string">
 // There are two main types of strings - standard C strings of char*, and std::string
 std::string str = "bananas";
+
+// String literals are of type char*
 
 // They are mutable and do not support interpolation
 // They store a sequence of bytes, so encoding must be handled manually
