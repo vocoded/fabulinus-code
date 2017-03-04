@@ -162,8 +162,8 @@ mine = *myPtr;
 // It works because std::string defines a copy constructor with that type of argument
 std::string str = "bananas";
 
-// They are mutable and do not support interpolation
-// They store a sequence of bytes, so encoding must be handled manually
+// std::string is mutable and does not support interpolation
+// It stores a sequence of bytes, so encoding must be handled manually
 
 // Concatenation via + operator
 std::string strcat = "hello ";
@@ -171,8 +171,11 @@ strcat += "world";
 
 std::cout << strcat.length() << std::endl;
 
-// Alternatively, strcat.at(0)
+// Alternatively, strcat.at(0).  Be careful of encoding!
 std::cout << strcat[0] << std::endl;
+
+// Start index, length; this returns a copy
+std::cout << strstr.substr(0, 3) << std::endl;
 
 if (!str.compare("bananas")) {
     std::cout << "Strings are equal!" << std::endl;
