@@ -157,9 +157,10 @@ mine = *myPtr;
 
 <script type="text/cpp" id="ex-cpp-string">
 // There are two main types of strings - standard C strings of char*, and std::string
-std::string str = "bananas";
 
-// String literals are of type char*
+// This assigns a new string from a literal which is of type const char*
+// It works because std::string defines a copy constructor with that type of argument
+std::string str = "bananas";
 
 // They are mutable and do not support interpolation
 // They store a sequence of bytes, so encoding must be handled manually
