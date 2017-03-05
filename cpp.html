@@ -1,5 +1,5 @@
 <script type="text/cpp" id="ex-cpp-structure">
-// In general, you'll want to keep #includes in header files to a minimum, preferring them in source files if possible
+// In general, keep #includes in header files to a minimum, preferring them in source files if possible
 #include "MyHeader.h"
 
 // Exactly one file in the compiled unit defines a main method:
@@ -52,7 +52,7 @@ void printValue(int x = 0)
 printValue();
 
 // Modifying an argument requires passing it by reference or pointer
-void add_concat(std::vector<std::string>& terms)
+void addConcat(std::vector<std::string>& terms)
 {
     // Unfortunately there's no std::vector.join()
     std::ostringstream os;
@@ -87,7 +87,7 @@ std::string& MyClass:getValue()
 
 <script type="text/cpp" id="ex-cpp-map">
 // Given a list of string terms, find the one that occurs most often
-std::string most_common_term(const std::vector<std::string>& terms)
+std::string mostCommonTerm(const std::vector<std::string>& terms)
 {
     std::map<std::string, int> term_map;
 
