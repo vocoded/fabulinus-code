@@ -153,6 +153,18 @@ public class MyClass {
 MyClass instance = new MyClass(10);
 String name = MyClass.getId();
 int count = MyClass.MAX_COUNT;
+
+// Java supports nested classes
+public class MyClass {
+    // Instantiated as new MyClass.InnerClass(); does not have access to member variables
+    public static class InnerStaticClass {
+    }
+
+
+    // Instantiated from an object of MyClass, such as myClass.new InnerClass();
+    public class InnerClass {
+    }
+}
 </script>
 
 <script type="text/java" id="ex-java-regex">
