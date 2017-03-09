@@ -58,6 +58,10 @@ print strstr.find('ba')
 print strstr[0:3]
 
 words = re.split(" ", strstr)
+
+# Comparison via ==; use "is" for object identity test
+if words[0] == "let's":
+    print "Term match"
 </script>
 
 <script type="text/python" id="ex-python-regex">
