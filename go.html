@@ -25,6 +25,19 @@ for i := 0; i < 100; i++ {
 </script>
 
 <script type="text/go" id="ex-go-function">
+// Increments the given integer local to the function
+func increment(x int) {
+    x += 1
+}
+
+func plusOne(x int) int {
+    return x + 1
+}
+
+// Go supports pointers
+func incrementDirect(x *int) {
+    *x += 1
+}
 </script>
 
 <script type="text/go" id="ex-go-var">
