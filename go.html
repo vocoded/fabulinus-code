@@ -41,6 +41,19 @@ func incrementDirect(x *int) {
 </script>
 
 <script type="text/go" id="ex-go-var">
+// Declarative form, no assignment
+var trueVar bool
+
+// Inferred type, no "var" keyword required
+trueVar := true
+name := "wally"
+var isNull MyClass
+
+isNull = nil
+
+// Note that arrays/slices are fixed length and must be grown manually
+names := []string{"hello", "world"}
+kvs := map[string]string{"hello":"world"}
 </script>
 
 <script type="text/go" id="ex-go-string">
