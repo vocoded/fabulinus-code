@@ -57,6 +57,30 @@ kvs := map[string]string{"hello":"world"}
 </script>
 
 <script type="text/go" id="ex-go-string">
+// Strings are immutable and declared implicitly
+str := "bananas";
+
+// String literals are always UTF-8 encoded, since go source files must be encoded in UTF8
+
+// Concatenation via + operator
+strcat := "hello " + "world";
+
+// String equality via == or strings.Compare
+if strcat == "hello world" {
+}
+
+// Total number of bytes in the string
+len := len(strcat)
+
+// Gets the byte at index 0
+c := strcat[0]
+
+fmt.Println(strings.Index(str, "ba"))
+
+// The for..range construct will iterate over UTF8 code points
+for index, runeValue := range strcat {
+    fmt.Printf("%#U starts at byte position %d\n", runeValue, index)
+}
 </script>
 
 <script type="text/go" id="ex-go-map">
