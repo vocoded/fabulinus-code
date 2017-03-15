@@ -84,6 +84,32 @@ for index, runeValue := range strcat {
 </script>
 
 <script type="text/go" id="ex-go-map">
+// Given a list of string terms, find the one that occurs most often
+func MostCommonTerm(terms []string) string {
+    termMap := make(map[string]int)
+
+    for _, term := range terms {
+        if count, ok := termMap[term]; ok {
+            termMap[term] = count + 1
+        } else {
+            termMap[term] = 1
+        }
+    }
+
+    max := 0
+    var result string
+
+    for key, value := range termMap {
+        if value > max {
+            result = key
+            max = value
+        }
+    }
+
+    delete(termMap, result)
+
+    return result
+}
 </script>
 
 <script type="text/go" id="ex-go-class">
