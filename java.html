@@ -123,9 +123,10 @@ String mostCommonTerm(List<String> terms) {
     int max = 0;
     String result = null;
 
-    for (Map.Entry<String, int> entry : map.entrySet()) {
+    for (Map.Entry<String, int> entry : termMap.entrySet()) {
         if (entry.getValue() > max) {
             result = entry.getKey();
+            max = entry.getValue();
         }
     }
 
