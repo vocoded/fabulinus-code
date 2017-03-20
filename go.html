@@ -41,18 +41,18 @@ func incrementDirect(x *int) {
 </script>
 
 <script type="text/go" id="ex-go-var">
-// Constants 
+// Constants, may be declared with or without a type; case determines visibility
 const myPrivateLimit = 100
 
-// Declarative form, no assignment
+// Declarative form, no assignment; will have a default value
 var trueVar bool
 
 // Inferred type, no "var" keyword required
 trueVar := true
 name := "wally"
-var isNull MyClass
 
-isNull = nil
+// Will have a default value of nil
+var isNil *MyClass
 
 // Note that arrays/slices are fixed length and must be grown manually
 names := []string{"hello", "world"}
@@ -62,6 +62,9 @@ kvs := map[string]string{"hello":"world"}
 <script type="text/go" id="ex-go-string">
 // Strings are immutable and declared implicitly
 str := "bananas";
+
+// Strings cannot be nil; the default value will be empty: ""
+var str string
 
 // String literals are always UTF-8 encoded, since go source files must be encoded in UTF8
 
@@ -87,12 +90,13 @@ for index, runeValue := range strcat {
 </script>
 
 <script type="text/go" id="ex-go-map">
-// Given a list of string terms, find the one that occurs most often
+// Given a list of string terms, finds the one that occurs most often
 func MostCommonTerm(terms []string) string {
     termMap := make(map[string]int)
 
+    // The range operator returns an index and a copy of the value
     for _, term := range terms {
-        if count, ok := termMap[term]; ok {
+        if count, exists := termMap[term]; exists {
             termMap[term] = count + 1
         } else {
             termMap[term] = 1
@@ -116,6 +120,19 @@ func MostCommonTerm(terms []string) string {
 </script>
 
 <script type="text/go" id="ex-go-class">
+// Go is not object oriented in the traditional sense.  There is no:
+//   inheritance
+//   polymorphism/overriding
+//   overloading
+//   static fields or methods
+type MyClass struct {
+    count int
+}
+
+// Methods are defined outside the type definition, usually with a pointer to the instance as a "receiver"
+func (m *MyClass) increment() {
+    m.count += 1
+}
 </script>
 
 <script type="text/go" id="ex-go-regex">
