@@ -133,6 +133,32 @@ type MyClass struct {
 func (m *MyClass) increment() {
     m.count += 1
 }
+
+type Animal struct {
+    Species string
+}
+
+// Interfaces are supported, and any type implementing the methods of an interface can be used as
+// instances of that interface
+type Linnaen interface {
+    PrintSpecies()
+}
+
+func (a *Animal) PrintSpecies() {
+    fmt.Println("My species is", a.Species)
+}
+
+// Types can be based on other types, gaining their fields but not any methods
+type Dog Animal {
+}
+
+// Using an anonymous field, both variables and methods of the field's type will be available
+// As a side effect, any interfaces implemented by the anonymous type will be implemented by this one as well
+type Dog struct {
+    Animal
+}
+
+// Further good reading: http://spf13.com/post/is-go-object-oriented/
 </script>
 
 <script type="text/go" id="ex-go-regex">
