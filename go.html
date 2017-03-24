@@ -162,6 +162,12 @@ type Dog struct {
 </script>
 
 <script type="text/go" id="ex-go-regex">
+subject := "hello world"
+pattern := "^hello"
+
+if match, _ := regexp.MatchString(pattern, subject); match {
+    fmt.Println("Item matched")
+}
 </script>
 
 <script type="text/go" id="ex-go-datetime">
