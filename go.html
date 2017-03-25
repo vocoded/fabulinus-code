@@ -168,6 +168,10 @@ pattern := "^hello"
 if match, _ := regexp.MatchString(pattern, subject); match {
     fmt.Println("Item matched")
 }
+
+r, _ := regexp.Compile("ll")
+// Returns an array of matching items in the string; second argument is the max matches to return
+fmt.Println(regexp.FindAllString(subject, -1))
 </script>
 
 <script type="text/go" id="ex-go-datetime">
