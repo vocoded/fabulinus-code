@@ -40,7 +40,8 @@ func incrementDirect(x *int) {
 }
 
 // No overloading and no optional or default parameters
-// Variadic/varargs is supported
+
+// Variadic/varargs is supported, passed as a slice
 func addUp(values ...int) {
     sum := 0
     for _, value := range values {
@@ -67,11 +68,14 @@ var isNil *MyClass
 // Note that arrays/slices are fixed length and must be grown manually
 names := []string{"hello", "world"}
 kvs := map[string]string{"hello":"world"}
+
+// Go supports an object literal construction syntax for any object
+myObj := MyClass{"hello world", 3}
 </script>
 
 <script type="text/go" id="ex-go-string">
 // Strings are immutable and declared implicitly
-str := "bananas";
+str := "bananas"
 
 // Strings cannot be nil; the default value will be empty: ""
 var str string
@@ -79,7 +83,7 @@ var str string
 // String literals are always UTF-8 encoded, since go source files must be encoded in UTF8
 
 // Concatenation via + operator
-strcat := "hello " + "world";
+strcat := "hello " + "world"
 
 // String equality via == or strings.Compare
 if strcat == "hello world" {
@@ -104,7 +108,7 @@ for index, runeValue := range strcat {
 func MostCommonTerm(terms []string) string {
     termMap := make(map[string]int)
 
-    // The range operator returns an index and a copy of the value
+    // The range operator returns an index and a *copy* of the value
     for _, term := range terms {
         if count, exists := termMap[term]; exists {
             termMap[term] = count + 1
