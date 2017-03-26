@@ -38,6 +38,16 @@ func plusOne(x int) int {
 func incrementDirect(x *int) {
     *x += 1
 }
+
+// No overloading and no optional or default parameters
+// Variadic/varargs is supported
+func addUp(values ...int) {
+    sum := 0
+    for _, value := range values {
+        sum += value
+    }
+    return sum
+}
 </script>
 
 <script type="text/go" id="ex-go-var">
