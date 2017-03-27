@@ -66,7 +66,8 @@ name := "wally"
 var isNil *MyClass
 
 // Note that arrays/slices are fixed length and must be grown manually
-names := []string{"hello", "world"}
+names := []string{"hello"}
+names = append(names, "world")
 kvs := map[string]string{"hello":"world"}
 
 // Go supports an object literal construction syntax for any object
