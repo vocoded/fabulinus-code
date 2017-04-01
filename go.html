@@ -199,9 +199,12 @@ now.Format("2006-01-02")
 
 <script type="text/php" id="ex-go-io2">
 import "ioutil"
+import "strings"
 
 if lines, err := ioutil.ReadFile("strings.txt"); err == nil {
-    fmt.Print(string(dat))
+    for _, line := range strings.Split(string(lines), "\n") {
+        fmt.Println(line)
+    }
 }
 </script>
 
