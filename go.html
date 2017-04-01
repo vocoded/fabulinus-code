@@ -198,6 +198,11 @@ now.Format("2006-01-02")
 </script>
 
 <script type="text/php" id="ex-go-io2">
+import "ioutil"
+
+if lines, err := ioutil.ReadFile("strings.txt"); err == nil {
+    fmt.Print(string(dat))
+}
 </script>
 
 <script type="text/go" id="ex-go-namespace">
