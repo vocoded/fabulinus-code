@@ -39,16 +39,16 @@ function increment(x) {
     x += 1;
 }
 
-function add_concat(terms) {
+function addConcat(terms) {
     terms.push(terms.join(''));
 }
 </script>
 
 <script type="text/js" id="ex-js-map">
-// Given a list of string terms, find the one that occurs most often
-function most_common_term(terms) {
+// Given a list of string terms, finds the one that occurs most often
+function mostCommonTerm(terms) {
     var term_map = {}, max = 0, result;
-    // For maximum compatibility, use a library like underscorejs
+    // For maximum compatibility, use a library like underscorejs/lodash
     terms.forEach(function(term) {
         if (term_map[term]) {
             term_map[term]++;
@@ -62,7 +62,7 @@ function most_common_term(terms) {
     return result;
 }
 
-console.log(most_common_term(['hello', 'world', 'hello']));
+console.log(mostCommonTerm(['hello', 'world', 'hello']));
 </script>
 
 <script type="text/js" id="ex-js-var">
