@@ -166,9 +166,10 @@ $subject = "hello world";
 $pattern = '/^hello/';
 
 // Saves any matches into the given array
-preg_match($pattern, $subject, $matches);
+// Returns 1 on match, 0 on no match, and false on error
+$isMatch = preg_match($pattern, $subject, $matches);
 
-if ($matches) {
+if ($isMatch) {
   print $matches[0];
 }
 
