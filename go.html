@@ -213,3 +213,21 @@ package main
 
 import "time"
 </script>
+
+<script type="text/go" id="ex-go-thread">
+func async() {
+    fmt.Println("Hello world")
+}
+
+func main() {
+    go async()
+
+    // Channels allow threads to communicate with one another
+    channel := make(chan string)
+    go func() { channel <- "hello world" }()
+
+    // Will block until received
+    msg := <-channel
+    fmt.Println(msg)
+}
+</script>

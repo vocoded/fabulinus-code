@@ -11,7 +11,8 @@ $(function() {
         ['class', 'Classes'],
         ['datetime', 'Date and Time'],
         ['regex', 'Regular Expressions'],
-        ['namespace', 'Namespacing/Packaging']
+        ['namespace', 'Namespacing/Packaging'],
+        ['thread', 'Multi-Threading']
     ];
 
     var loading = false;
