@@ -217,7 +217,7 @@ foreach (file('strings.txt') as $line) {
    echo $line . "\n";
 }
 
-# Manually grab content of file
+// Manually grab content of file
 $handle = fopen("strings.txt", "r");
 $lines = [];
 if ($handle) {
@@ -227,4 +227,10 @@ if ($handle) {
 
     fclose($handle);
 }
+</script>
+
+<script type="text/php" id="ex-php-thread">
+// PHP is not natively multithreaded.  Through the pthread extension you can
+// implement a threaded command line application, however this library cannot
+// be used in a web environment.
 </script>
