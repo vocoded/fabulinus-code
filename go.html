@@ -2,11 +2,12 @@
 package main
 
 import (
-  "fmt"
+    "fmt"
 )
 
 func main() {
-  fmt.Println("Starting and Ending")
+    fmt.Println("Invoked with arguments", os.Args)
+    fmt.Println("Starting and Ending")
 }
 </script>
   
@@ -87,6 +88,9 @@ var str string
 
 // Concatenation via + operator
 strcat := "hello " + "world"
+
+// Must convert other types to string for concat
+strcat = strcat + strconv.Itoa(2)
 
 // String equality via == or strings.Compare
 if strcat == "hello world" {
