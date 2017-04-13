@@ -39,7 +39,11 @@ $(function() {
     var getCodeBlock = function(lang, block) {
         var $block = $("#ex-" + lang + "-" + block);
         if ($block.length) {
-            return hljs.highlight(lang, $.trim($block.html())).value;
+            try {
+                return hljs.highlight(lang, $.trim($block.html())).value;
+            } catch (e) {
+                return $.trim($block.html());
+            }
         }
 
         return "TBD";
