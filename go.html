@@ -202,7 +202,12 @@ fmt.Println(regexp.FindAllString(subject, -1))
 <script type="text/go" id="ex-go-datetime">
 now := time.Now
 secs := now.Unix()
+
+// Creates a string from a time.Time instance
 now.Format("2006-01-02")
+
+// Creates a time.Time from a string
+date, err := time.Parse("2006-01-02T15:04:05", dateStr)
 </script>
 
 <script type="text/php" id="ex-go-io2">
