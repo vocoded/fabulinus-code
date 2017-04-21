@@ -86,7 +86,7 @@ std::string& MyClass:getValue()
 </script>
 
 <script type="text/cpp" id="ex-cpp-map">
-// Given a list of string terms, find the one that occurs most often
+// Given a list of string terms, finds the one that occurs most often
 std::string mostCommonTerm(const std::vector<std::string>& terms)
 {
     std::map<std::string, int> term_map;
@@ -159,7 +159,7 @@ mine = *myPtr;
 // There are two main types of strings - standard C strings of char*, and std::string
 
 // This assigns a new string from a literal which is of type const char*
-// It works because std::string defines a copy constructor with that type of argument
+// It works because std::string defines a copy constructor with a const char* argument
 std::string str = "bananas";
 
 // std::string is mutable and does not support interpolation
