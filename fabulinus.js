@@ -38,15 +38,16 @@ $(function() {
 
     var getCodeBlock = function(lang, block) {
         var $block = $("#ex-" + lang + "-" + block);
-        if ($block.length) {
-            try {
-                return hljs.highlight(lang, $.trim($block.html())).value;
-            } catch (e) {
-                return $.trim($block.html());
-            }
+        if (!$block.length) {
+            return "TBD";
         }
 
-        return "TBD";
+        var html = $.trim($block.html());
+        try {
+            return hljs.highlight(lang, html).value;
+        } catch (e) {
+            return html;
+        }
     };
 
     var setCodeBlocks = function(lang) {

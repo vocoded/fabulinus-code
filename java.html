@@ -37,6 +37,15 @@ int plusOne(int x) {
     return x + 1;
 }
 
+// All parameters are passed by value (or "value reference", with objects)
+void addConcat(ArrayList<string> terms) {
+    // This change will be reflected outside the method
+    terms.add(String.join("", terms));
+
+    // This will not
+    terms = new ArrayList<>();
+}
+
 // Java supports varargs as the last parameter
 int sum(int... args) {
     int sum = 0;
@@ -49,15 +58,6 @@ int sum(int... args) {
     // return Arrays.stream(args).sum();
 
     return sum;
-}
-
-// All parameters are passed by value (or "value reference", with objects)
-void addConcat(ArrayList<string> terms) {
-    // This change will be reflected outside the method
-    terms.add(String.join("", terms));
-
-    // This will not
-    terms = new ArrayList<>();
 }
 </script>
 
