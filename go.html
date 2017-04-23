@@ -69,8 +69,12 @@ var trueVar bool
 trueVar := true
 name := "wally"
 
-// Will have a default value of nil
+// Pointers will have a default value of nil
 var isNil *MyClass
+var isNotNil *MyClass = &MyClass{}
+
+// Go will automatically coerce method receivers between pointer and non-pointer instances
+isNotNil.someMethod()  // As opposed to (*isNotNil).someMethod()
 
 // Note that arrays/slices are fixed length and must be grown manually
 names := []string{"hello"}
