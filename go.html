@@ -199,6 +199,7 @@ if match, _ := regexp.MatchString(pattern, subject); match {
 }
 
 r, _ := regexp.Compile("ll")
+
 // Returns an array of matching items in the string; second argument is the max matches to return
 fmt.Println(regexp.FindAllString(subject, -1))
 </script>
@@ -222,6 +223,21 @@ if lines, err := ioutil.ReadFile("strings.txt"); err == nil {
     for _, line := range strings.Split(string(lines), "\n") {
         fmt.Println(line)
     }
+}
+
+// To read one line at a time, use a Scanner
+file, err := os.Open("strings.txt")
+if err != nil {
+    log.Fatal(err)
+}
+defer file.Close()
+
+scanner := bufio.NewScanner(file)
+
+// Note that this will work as long as lines are less than 64k, otherwise you
+// must pass a custom buffer to scanner.Buffer()
+for scanner.Scan() {
+    fmt.Println(scanner.Text())
 }
 </script>
 
