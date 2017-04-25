@@ -1,4 +1,5 @@
 <script type="text/go" id="ex-go-structure">
+// Go will build all source files of package main into an executable
 package main
 
 import (
@@ -242,9 +243,18 @@ for scanner.Scan() {
 </script>
 
 <script type="text/go" id="ex-go-namespace">
+// For executables, use package main
 package main
 
 import "time"
+
+// For shared libraries, create a package based on the directory name in which the code lives
+package utils
+
+import (
+    // If the package name might not be unique, you can alias it
+    myutils "myapp/utils"
+)
 </script>
 
 <script type="text/go" id="ex-go-thread">
