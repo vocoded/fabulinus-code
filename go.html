@@ -80,6 +80,8 @@ isNotNil.someMethod()  // As opposed to (*isNotNil).someMethod()
 // Note that arrays/slices are fixed length and must be grown manually
 names := []string{"hello"}
 names = append(names, "world")
+// To append from one slice to another, use the spread operator
+names = append(names, []string{"another", "world"}...)
 kvs := map[string]string{"hello":"world"}
 
 // Go supports an object literal construction syntax for any object
