@@ -107,13 +107,17 @@ class MyClass
   # Shorthand to define an instance variable with getter and setter
   attr_accessor :prop
 
-  def initialize(count)
+  def initialize(count, prop)
     # Instance variables start with @, are implicitly private and declared dynamically
     @count = count
+
+    # Equivalent to @prop = prop
+    self.prop = prop
   end
 end
 
-mc = MyClass.new(1)
+mc = MyClass.new(1, "hello")
+puts mc.prop
 </script>
 
 <script type="text/ruby" id="ex-ruby-regex">
