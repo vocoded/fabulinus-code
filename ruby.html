@@ -33,6 +33,8 @@ def add_concat(terms)
 end
 
 # This would be a runtime error: add_concat()
+
+# Ruby will automatically return the last value in a function
 </script>
 
 <script type="text/ruby" id="ex-ruby-var">
@@ -73,7 +75,7 @@ puts strstr.gsub('ban', 'can')
 </script>
 
 <script type="text/ruby" id="ex-ruby-map">
-# Given a list of string terms, find the one that occurs most often
+# Given a list of string terms, finds the one that occurs most often
 def most_common_term(terms)
   term_map = {}
   terms.each do |term|
@@ -99,9 +101,14 @@ end
 
 <script type="text/ruby" id="ex-ruby-class">
 class MyClass
+  # Static variables start with @@
   @@id = 'MyClass'
 
+  # Shorthand to define an instance variable with getter and setter
+  attr_accessor :prop
+
   def initialize(count)
+    # Instance variables start with @, are implicitly private and declared dynamically
     @count = count
   end
 end
