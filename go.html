@@ -217,6 +217,9 @@ now.Format("2006-01-02")
 
 // Creates a time.Time from a string
 date, err := time.Parse("2006-01-02T15:04:05", dateStr)
+
+// Create a time from a Unix timestamp (seconds/nanoseconds)
+tm := time.Unix(secs, 0)
 </script>
 
 <script type="text/php" id="ex-go-io2">
