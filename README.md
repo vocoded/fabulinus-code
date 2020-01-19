@@ -5,3 +5,12 @@ understanding, repairing, and extending code in a variety of languages.  Most of
 into a small number of categories, all of which can be captured concisely through working examples.
 
 This project aims to provide those examples quickly and clearly.  It's a bit like a structured version of Learn X in Y Minutes.
+
+## Installing
+
+To run, make sure to have a recent version of node, then:
+
+```
+npm install
+npm start
+```
