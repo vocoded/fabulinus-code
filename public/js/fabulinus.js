@@ -21,7 +21,7 @@ $(function() {
 
     var fetchCodeBlocks = function(lang, onSuccess) {
         $.get({
-            url: lang + '.html',
+            url: '/html/' + lang + '.html',
             success: function(data) {
                 loaded[lang] = true;
                 $('body').append(data);
